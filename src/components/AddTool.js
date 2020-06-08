@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addTool } from "../utils/actions";
+import NavBar from "./navBar";
 import styled from "styled-components";
 
 const StyledForm = styled.form`
@@ -58,28 +59,28 @@ const Required = styled.h3`
   margin-top: 3%;
 `;
 
-const AddTool = props => {
+const AddTool = (props) => {
   const userId = localStorage.getItem("userId");
   const [tool, setTool] = useState({});
 
-  const handleChanges = event => {
+  const handleChanges = (event) => {
     setTool({ ...tool, [event.target.name]: event.target.value });
   };
 
-  const submitForm = event => {
+  const submitForm = (event) => {
     event.preventDefault();
     const newTool = {
       ownerId: userId,
       name: tool.name,
       price: Number(tool.price),
-      toolImg: tool.toolImg
+      toolImg: tool.toolImg,
     };
     props.addTool(newTool);
     alert(`Successfully added "${tool.name}"`);
     setTool({
       name: "",
       price: "",
-      toolImg: ""
+      toolImg: "",
     });
     props.history.push(`/user/${userId}`);
   };
@@ -134,9 +135,9 @@ const AddTool = props => {
   }
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    isAdding: state.isAdding
+    isAdding: state.isAdding,
   };
 };
 
