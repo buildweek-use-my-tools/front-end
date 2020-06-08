@@ -76,7 +76,7 @@ const Login = props => {
     <div>
       <NavBarLogin />
       <StyledForm onSubmit={login}>
-        <i class="fas fa-tools fa-5x"></i>
+        <i className="fas fa-tools fa-5x"></i>
         <StyledInput
           value={user}
           onChange={userHandler}
