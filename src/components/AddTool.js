@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addTool } from "../utils/actions";
 import styled from "styled-components";
-import NavBar from "./navBar";
 
 const StyledForm = styled.form`
   display: flex;
